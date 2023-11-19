@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Slack Redesign</title>
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/Favicon.png">
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header and navigation -->
+      <header class="header">
+        <nav class="nav">
+          <div class="icons">
+            <a href="#"><i class="fas fa-arrow-left"></i></a>
+            <a href="#" class="grey"><i class="fas fa-arrow-right"></i></a>
+            <a href="#"><i class="far fa-clock"></i></a>
+          </div>
+          <form action="." class="search-bar" id="searchForm">
+            <i class="fas fa-search"></i>
+            <input
+              type="search"
+              name="search"
+              id="searchInput"
+              placeholder="Search Slack"
+              class="search-bar-input"
+            />
+            
+          </form>
+
+          <div class="move-left">
+            <a href="#"><i class="far fa-question-circle"></i></a>
+            <div class="user-img-wrapper" id="user">
+              <img src="images/user2.jpg" alt="User 1" />
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- End of header and navigation -->
+      <main class="main">
+        <section class="sidebar">
+          <article class="sidebar-1">
+            <div class="box-1"></div>
+            <div class="box-2"></div> 
+            <div class="box-3">+</div>
+          </article>
+
+          <article class="sidebar-2">
+            <section class="sidebar-user">
+              <div class="sidebar-user-info">
+                <h4>Madhuvanthi R</h4>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <p class="sidebar-user-info-additional">
+                <i class="fas fa-circle"></i>Madhu
+              </p>
+              <span class="user-edit-icon"><i class="fas fa-edit"></i></span>
+            </section>
+            <section class="unread">
+              <h4 class="unread-header">
+                <span class="unread-icons">
+                  <i class="fas fa-minus"></i><i class="fas fa-minus fa-sm"></i
+                  ><i class="fas fa-minus fa-xs"></i>
+                </span>
+                All unread
+              </h4>
+              <ul>
+                <li>
+                  <a href="#"><i class="far fa-comment-dots"></i>Threads</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-at"></i>Mentions & reactions</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-arrow-down"></i>Show more</a>
+                </li>
+              </ul>
+            </section>
+
+            <!--channels-->
+            <section class="channels">
+              <h4 class="channels-header" id="toggleAddChannelForm" >
+                <i class="fas fa-sort-down"></i> Channels 
+              </h4>
+              <ul>
+                <li>
+                  <a href="#"><i class="fas fa-hashtag"></i>General</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><span class="make-white"
+                      ><i class="fas fa-hashtag"></i>Design-team</span
+                    ><span class="counter">1</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><span class="make-white"
+                      ><i class="fas fa-circle online"></i>Meeting Notes</span
+                    ></a
+                  >
+                </li>
+                <li class="active">
+                  <a href="#"><i class="fas fa-hashtag"></i>Office-Updates</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-lock"></i>Team-chat</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-plus" onclick="showAddChannelForm()"></i>Add channels</a>
+                </li>
+              </ul>
+
+              <div id="addChannelForm" class="form-popup">
+                <form class="form-container">
+                  
+                  <label for="channelName"><b>Create a channel</b></label>
+                  <input type="text" placeholder="# e.g. subscription-budget" name="channelName" required>
+                  <label for="channelDescription"><b>Description</b></label>
+                  <textarea placeholder="# e.g. subscription-budget" name="channelDescription"></textarea>
+                  <button type="submit" class="btn">Create</button>
+                </form>
+              </div>
+
+               
+
+            </section>
+    
+            
+
+               
+
+            <!--Messages-->
+            <section class="direct-messages">
+              <h4 class="direct-messages-header">
+                <i class="fas fa-sort-down"></i> Direct Messages
+              </h4>
+              <ul id="directMessagesList">
+                <li onclick="openDirectMessage('slackbot')">
+                  <a href="#"><i class="fas fa-heart online"></i>slackbot</a>
+                </li>
+                <li onclick="openDirectMessage('Madhuvanthi')">
+                  <a href="#">
+                    <i class="fas fa-circle online"></i>Madhuvanthi(You)</a
+                  >
+                </li onclick="openDirectMessage('Karthickeyan J')">
+                <li>
+                  <a href="#"
+                    ><span class="make-white"
+                      ><i class="fas fa-circle offline"></i
+                    ></span>
+                    Karthickeyan J</a
+                  >
+                </li onclick="openDirectMessage('Madhumitha')">
+                <li>
+                  <a href="#"
+                    ><span class="make-white"
+                      ><i class="fas fa-circle offline"></i
+                    ></span>
+                    Madhumitha</a
+                  >
+                </li>
+                <li onclick="openDirectMessage('Komala')">
+                  <a href="#"
+                    ><span class="make-white"
+                      ><i class="fas fa-circle offline"></i
+                    ></span>
+                    Komala</a
+                  >
+                </li>
+              </ul>
+            </section>
+          </article>
+
+          
+        </section>
+        <section class="body">
+          <section class="content">
+            <section class="content-header">
+              <article class="channel-content-header-details">
+                
+                <h4  id="channelNameDisplay"> <!--  channel name -->
+                    <i class="fas fa-star"></i>
+                </h4>
+                
+              </article>
+              <button
+                class="btn-borderless btn-slack info"
+                id="info"
+                type="button"
+              >
+                <i class="fas fa-info-circle"></i>
+              </button>
+            </section>
+            <section class="feeds">
+              <article class="feed"></article>
+              <article class="feed"></article>
+              <article class="feed" id="message-feed">
+                <section class="feeds-user-avatar">
+                    <img id="avatarDisplay" alt="User Avatar" width="40" />
+                  </section>
+                  
+                <section class="feed-content">
+                  <section class="feed-user-info">
+                    <h4 id="usernameDisplay" > <!--  username  --> 
+                        <span class="time-stamp">12:58pm</span>
+                    </h4>
+                    <span class="time-stamp">12:58pm</span>
+                  </section>
+                  <div>
+                    <p class="feed-text">
+                      Quick note: Today <span class="mention">@Madhuvanthi </span> will
+                      join our team sync to provide updates on the launch, if
+                      you have questions, bring 'em. See you all later...er, in
+                      2 minutes.
+                    </p>
+                  </div>
+                </section>
+              </article>
+              
+                
+              
+            </section>
+
+            <!--message form-->
+            
+            <form action="#"  class="form" name="feedForm"onsubmit="sendMessage(); return false;">
+              <div class="input" id="textBox" contenteditable="true">
+                <p>Message #Office-Updates</p>
+              </div>
+              <div class="input-toolbar-icons">
+                <div class="move-right">
+                  <i class="fas fa-bolt"></i>
+                  <i class="fas fa-bold" data-command="b"></i>
+                  <i class="fas fa-italic" data-command="i"></i>
+                  <i class="fas fa-strikethrough"></i>
+                  <i class="fas fa-code" data-command="code"></i>
+                  <i class="fas fa-link" data-command="a"></i>
+                  <i class="fas fa-list-ol" data-command="ol"></i>
+                  <i class="fas fa-list-ul" data-command="ul"></i>
+                  <i class="fas fa-quote-left" data-command="blockquote"></i>
+                  <i class="far fa-file-code" data-command="pre"></i>
+                  <i class="fas fa-print" onclick="printDoc();"></i>
+                </div>
+                <button type="submit" class="btn-borderless button">
+                  <i class="fas fa-angle-double-right"></i>
+                </button>
+              </div>
+              <div class="input-toolbar-selection"></div>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
